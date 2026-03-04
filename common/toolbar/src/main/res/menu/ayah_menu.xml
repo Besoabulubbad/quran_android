@@ -31,4 +31,7 @@
           android:visible="false"
           android:icon="@drawable/ic_mic"
           android:title="@string/recite_from_here" />
+    <item android:id="@+id/cab_close_ayah"
+          android:icon="@drawable/ic_close"
+          android:title="@string/close_ayah_toolbar" />
 </menu>

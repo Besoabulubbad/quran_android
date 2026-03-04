@@ -1503,7 +1503,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     }
   }
 
-  private fun playFromAyah(startSura: Int, startAyah: Int) {
+  internal fun playFromAyah(startSura: Int, startAyah: Int) {
     val page = quranInfo.getPageFromSuraAyah(startSura, startAyah)
     val start = SuraAyah(startSura, startAyah)
     val end = selectionEnd
@@ -1802,6 +1802,8 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         shareAyah(startSuraAyah, endSuraAyah, false)
       } else if (itemId == com.quran.labs.androidquran.common.toolbar.R.id.cab_copy_ayah) {
         shareAyah(startSuraAyah, endSuraAyah, true)
+      } else if (itemId == com.quran.labs.androidquran.common.toolbar.R.id.cab_close_ayah) {
+        // dismiss handled below via endAyahMode()
       } else {
         return false
       }

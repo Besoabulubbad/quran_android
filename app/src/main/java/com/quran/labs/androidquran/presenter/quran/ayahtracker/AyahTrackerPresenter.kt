@@ -264,7 +264,12 @@ class AyahTrackerPresenter @Inject constructor(
     ayahCoordinatesError: Boolean
   ): Boolean {
     if (eventType === DOUBLE_TAP) {
-      readingEventPresenter.onAyahSelection(AyahSelection.None)
+      val tappedAyah = getAyahForPosition(page, event.x, event.y)
+      if (tappedAyah != null && activity is PagerActivity) {
+        activity.playFromAyah(tappedAyah.sura, tappedAyah.ayah)
+      } else {
+        readingEventPresenter.onAyahSelection(AyahSelection.None)
+      }
     } else if (eventType == LONG_PRESS ||
       readingEventPresenter.currentAyahSelection() != AyahSelection.None
     ) {
