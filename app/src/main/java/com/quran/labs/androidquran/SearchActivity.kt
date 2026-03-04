@@ -357,7 +357,9 @@ class SearchActivity : AppCompatActivity(), SimpleDownloadListener,
       intent.putExtra(PagerActivity.EXTRA_JUMP_TO_TRANSLATION, true)
     }
     intent.putExtra("page", page)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
     startActivity(intent)
+    finish()
   }
 
   private fun showResults(query: String?) {

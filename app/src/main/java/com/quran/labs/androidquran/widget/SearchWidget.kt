@@ -38,6 +38,7 @@ class SearchWidget : AppWidgetProvider() {
 
       intent = Intent(context, QuranActivity::class.java)
       intent.action = ShortcutsActivity.ACTION_JUMP_TO_LATEST
+      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
       pendingIntent =
         PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
       widget.setOnClickPendingIntent(R.id.search_widget_btn_go_to_quran, pendingIntent)
